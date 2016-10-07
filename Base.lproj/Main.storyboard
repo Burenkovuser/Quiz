@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Quiz View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="QuizViewController" customModule="Quiz" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4bh-Bz-UTP" customClass="ViewWilthButton" customModule="Quiz" customModuleProvider="target">
+                                <rect key="frame" x="25" y="43" width="558" height="450"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="firstsQuestion" translatesAutoresizingMaskIntoConstraints="NO" id="weE-9o-S0u">
+                                        <rect key="frame" x="121" y="74" width="316" height="160"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hNt-hl-8DP">
+                                        <rect key="frame" x="21" y="340" width="71" height="30"/>
+                                        <state key="normal" title="Вариант 1"/>
+                                        <connections>
+                                            <action selector="buttonPressed:" destination="4bh-Bz-UTP" eventType="touchUpInside" id="5Un-ot-2vz"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ot-qP-arS">
+                                        <rect key="frame" x="461" y="335" width="77" height="30"/>
+                                        <state key="normal" title=" Вариант 2"/>
+                                        <connections>
+                                            <action selector="buttonPressed:" destination="4bh-Bz-UTP" eventType="touchUpInside" id="0G6-rd-XQJ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9rw-Sz-t6t">
+                                        <rect key="frame" x="20" y="400" width="74" height="30"/>
+                                        <state key="normal" title="Вариант 3"/>
+                                        <connections>
+                                            <action selector="buttonPressed:" destination="4bh-Bz-UTP" eventType="touchUpInside" id="AQi-Gl-DaJ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A1S-ML-yZ4">
+                                        <rect key="frame" x="464" y="400" width="74" height="30"/>
+                                        <state key="normal" title="Вариант 4"/>
+                                        <connections>
+                                            <action selector="buttonPressed:" destination="4bh-Bz-UTP" eventType="touchUpInside" id="Nc3-Nn-4fZ"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" текст вопроса" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jcr-hq-tG3">
+                                        <rect key="frame" x="220" y="24" width="119" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="button1" destination="hNt-hl-8DP" id="ZdD-mF-OnE"/>
+                                    <outlet property="button2" destination="3Ot-qP-arS" id="bDJ-9z-4KW"/>
+                                    <outlet property="button3" destination="9rw-Sz-t6t" id="rI7-xj-Iaa"/>
+                                    <outlet property="button4" destination="A1S-ML-yZ4" id="08o-r7-r3Y"/>
+                                    <outlet property="imageView" destination="weE-9o-S0u" id="f0W-wv-L41"/>
+                                    <outlet property="topText" destination="Jcr-hq-tG3" id="eaK-GH-aL8"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="quizView" destination="4bh-Bz-UTP" id="p6u-Mw-e7x"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="261" y="318"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="firstsQuestion" width="129" height="97"/>
+    </resources>
+</document>
