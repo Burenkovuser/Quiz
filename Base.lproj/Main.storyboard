@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Quiz View Controller-->
@@ -17,48 +18,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4bh-Bz-UTP" customClass="ViewWilthButton" customModule="Quiz" customModuleProvider="target">
-                                <rect key="frame" x="25" y="43" width="558" height="450"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4bh-Bz-UTP" customClass="ViewWilthButton" customModule="Quiz" customModuleProvider="target">
+                                <rect key="frame" x="40" y="40" width="520" height="540"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="firstsQuestion" translatesAutoresizingMaskIntoConstraints="NO" id="weE-9o-S0u">
-                                        <rect key="frame" x="121" y="74" width="316" height="160"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="firstsQuestion" translatesAutoresizingMaskIntoConstraints="NO" id="weE-9o-S0u">
+                                        <rect key="frame" x="196" y="74" width="129" height="97"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hNt-hl-8DP">
-                                        <rect key="frame" x="21" y="340" width="71" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" текст вопроса" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jcr-hq-tG3">
+                                        <rect key="frame" x="30" y="24" width="460" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hNt-hl-8DP">
+                                        <rect key="frame" x="8" y="445" width="71" height="30"/>
                                         <state key="normal" title="Вариант 1"/>
                                         <connections>
                                             <action selector="buttonPressed:" destination="4bh-Bz-UTP" eventType="touchUpInside" id="5Un-ot-2vz"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ot-qP-arS">
-                                        <rect key="frame" x="461" y="335" width="77" height="30"/>
-                                        <state key="normal" title=" Вариант 2"/>
-                                        <connections>
-                                            <action selector="buttonPressed:" destination="4bh-Bz-UTP" eventType="touchUpInside" id="0G6-rd-XQJ"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9rw-Sz-t6t">
-                                        <rect key="frame" x="20" y="400" width="74" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9rw-Sz-t6t">
+                                        <rect key="frame" x="8" y="502" width="74" height="30"/>
                                         <state key="normal" title="Вариант 3"/>
                                         <connections>
                                             <action selector="buttonPressed:" destination="4bh-Bz-UTP" eventType="touchUpInside" id="AQi-Gl-DaJ"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A1S-ML-yZ4">
-                                        <rect key="frame" x="464" y="400" width="74" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A1S-ML-yZ4">
+                                        <rect key="frame" x="438" y="502" width="74" height="30"/>
                                         <state key="normal" title="Вариант 4"/>
                                         <connections>
                                             <action selector="buttonPressed:" destination="4bh-Bz-UTP" eventType="touchUpInside" id="Nc3-Nn-4fZ"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" текст вопроса" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jcr-hq-tG3">
-                                        <rect key="frame" x="220" y="24" width="119" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ot-qP-arS">
+                                        <rect key="frame" x="435" y="445" width="77" height="30"/>
+                                        <state key="normal" title=" Вариант 2"/>
+                                        <connections>
+                                            <action selector="buttonPressed:" destination="4bh-Bz-UTP" eventType="touchUpInside" id="0G6-rd-XQJ"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="weE-9o-S0u" firstAttribute="centerX" secondItem="4bh-Bz-UTP" secondAttribute="centerX" id="9vZ-n9-1Gb"/>
+                                    <constraint firstItem="3Ot-qP-arS" firstAttribute="trailing" secondItem="4bh-Bz-UTP" secondAttribute="trailingMargin" id="DGt-KH-56Z"/>
+                                    <constraint firstItem="9rw-Sz-t6t" firstAttribute="top" secondItem="hNt-hl-8DP" secondAttribute="bottom" constant="27" id="F6e-6o-tzy"/>
+                                    <constraint firstItem="weE-9o-S0u" firstAttribute="top" secondItem="Jcr-hq-tG3" secondAttribute="bottom" constant="29" id="LeJ-wS-Oyp"/>
+                                    <constraint firstItem="9rw-Sz-t6t" firstAttribute="baseline" secondItem="A1S-ML-yZ4" secondAttribute="baseline" id="UQa-1t-tjI"/>
+                                    <constraint firstItem="hNt-hl-8DP" firstAttribute="baseline" secondItem="3Ot-qP-arS" secondAttribute="baseline" id="cj2-UZ-5mY"/>
+                                    <constraint firstItem="Jcr-hq-tG3" firstAttribute="top" secondItem="4bh-Bz-UTP" secondAttribute="top" constant="24" id="eau-SE-8Gt"/>
+                                    <constraint firstItem="9rw-Sz-t6t" firstAttribute="bottom" secondItem="4bh-Bz-UTP" secondAttribute="bottomMargin" id="eg8-Ep-f13"/>
+                                    <constraint firstAttribute="trailing" secondItem="Jcr-hq-tG3" secondAttribute="trailing" constant="30" id="fj6-bb-62E"/>
+                                    <constraint firstItem="hNt-hl-8DP" firstAttribute="leading" secondItem="4bh-Bz-UTP" secondAttribute="leadingMargin" id="iOF-km-LRs"/>
+                                    <constraint firstItem="Jcr-hq-tG3" firstAttribute="leading" secondItem="4bh-Bz-UTP" secondAttribute="leading" constant="30" id="j1g-7p-Mbn"/>
+                                    <constraint firstItem="hNt-hl-8DP" firstAttribute="leading" secondItem="9rw-Sz-t6t" secondAttribute="leading" id="rkt-OW-f28"/>
+                                    <constraint firstItem="3Ot-qP-arS" firstAttribute="trailing" secondItem="A1S-ML-yZ4" secondAttribute="trailing" id="wJv-5a-xor"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="button1" destination="hNt-hl-8DP" id="ZdD-mF-OnE"/>
                                     <outlet property="button2" destination="3Ot-qP-arS" id="bDJ-9z-4KW"/>
@@ -70,6 +86,12 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="4bh-Bz-UTP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="20" id="3ms-06-rsB"/>
+                            <constraint firstItem="4bh-Bz-UTP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="7TO-gU-d2e"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="4bh-Bz-UTP" secondAttribute="bottom" constant="20" id="9i7-Ek-vZC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4bh-Bz-UTP" secondAttribute="trailing" constant="20" id="MhG-2i-avi"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="quizView" destination="4bh-Bz-UTP" id="p6u-Mw-e7x"/>
