@@ -9,17 +9,48 @@
 import UIKit
 
 class StoreManager {
-    func loadQuestionsByTheme(themeName:String) -> [Question] {
+    func loadQuestionsByTheme(themeName:String) -> [Question]? {
         
-       let question = Question(text: "Как звали няню Пушкина?",
-                            answers: ["Вася",
-                                "Арина Радионовна",
-                                "Виолетта Акардионовна",
-                                "Александра Юрьевна"],
-                            correctAnswer: "Арина Радионовна",
-                            imageName: "1")
+        //найдем путь к файлу с информацией о викторине
+        let path = NSBundle.mainBundle().pathForResource("cinema", ofType: "json")
         
-        return [question]
+        //проверить условие и продолжить дальше если оно выполняется
+        guard path != nil else {
+            return nil
+        }
+        
+        //загрузим сюда данные
+        let data = NSData(contentsOfFile: path!)
+        
+        guard data != nil else {
+            return nil
+        }
+        
+        do {
+            
+            // преобраздуем байты в объект
+            let json = try NSJSONSerialization.JSONObjectWithData(data!, options: [])
+            
+            print(json)
+            
+            let questionsInfos = json["questions"] as! [NSDictionary]
+            
+            // создаем массив из Qestion объектов
+            var questionsObjects = [Question]()
+            
+            for info in questionsInfos {
+                let qestionObject = Question(json: info)
+                questionsObjects.append(qestionObject)
+            }
+            
+            return questionsObjects
+            
+        }
+        catch {
+            print("Oopps did not get object from data:\(error)")
+            return nil
+        }
+        
+        
     }
-
 }

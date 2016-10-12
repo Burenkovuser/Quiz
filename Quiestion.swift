@@ -32,6 +32,20 @@ class Question {
         self.imageName = imageName
     }
     
+    init(json: NSDictionary) {
+/*{
+ "question":"Почему крокодилы, поедая мясо, «плачут»?",
+ "answers":["Испытывают вину", "От радости - наконец-то есть,что покушать","Выводят соли из организма"],
+ "correctAnswer":"Выводят соли из организма",
+ "image":"1"
+ }
+ */
+        text = json["question"] as! String
+        answers = json["answers"] as! [String]
+        correctAnswer = json["correctAnswer"] as! String
+        imageName = json["image"] as! String
+    }
+    
     //метод для проверки одного из вариантов ответа
     func isCorrectAnswer(variant:String) -> Bool {
         return variant == correctAnswer
