@@ -20,8 +20,29 @@ class selectQuizViewController: UIViewController {
         allQuizes = loadAllQuizes()
         tableView.dataSource = self
         tableView.delegate = self
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if  segue.destinationViewController is QuizViewController {
+            let nextViewController = segue.destinationViewController as! QuizViewController
+            let quizJSON  = sender as! [String:AnyObject]
+            
+            let namt = quizJSON["name"] as! String
+            //let question  = quizJSON["questions"]
+            
+            let questionsInfos = quizJSON["questions"] as! [NSDictionary]
+            
+            // создаем массив из Qestion объектов
+            var questionsObjects = [Question]()
+            
+            for info in questionsInfos {
+                let qestionObject = Question(json: info)
+                questionsObjects.append(qestionObject)
+            }
 
-        // Do any additional setup after loading the view.
+            nextViewController.victorina = questionsObjects
+            nextViewController.title = namt
+            
+        }
     }
     
     func loadAllQuizes() -> [ [String:AnyObject] ] {
@@ -67,5 +88,9 @@ extension selectQuizViewController: UITableViewDataSource {
 }
 
 extension selectQuizViewController: UITableViewDelegate {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let selectedQuizes = quizAtIndexPath(indexPath)
+        performSegueWithIdentifier("Show Quize", sender: selectedQuizes)
+    }
     
 }

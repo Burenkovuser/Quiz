@@ -71,6 +71,7 @@
                     <navigationItem key="navigationItem" id="3FT-sx-bur"/>
                     <connections>
                         <outlet property="tableView" destination="cHV-7h-UZw" id="4Wh-Hj-70e"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="Show Quize" id="vRB-cl-mrQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n7P-TK-9a3" userLabel="First Responder" sceneMemberID="firstResponder"/>
