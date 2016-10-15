@@ -18,6 +18,8 @@ class selectQuizViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         allQuizes = loadAllQuizes()
+        tableView.dataSource = self
+        tableView.delegate = self
 
         // Do any additional setup after loading the view.
     }
@@ -44,5 +46,26 @@ class selectQuizViewController: UIViewController {
     }
 }
 
+extension selectQuizViewController: UITableViewDataSource {
 
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return allQuizes!.count
+    }
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("QuizeCell", forIndexPath: indexPath)
+        let quize = quizAtIndexPath(indexPath)
+        let name = quize["name"] as! String
+        
+        cell.textLabel?.text = name
+        
+        return cell
+    }
+    
+    func quizAtIndexPath(index:NSIndexPath) -> [String : AnyObject] {
+        return allQuizes![index.row]
+    }
+}
 
+extension selectQuizViewController: UITableViewDelegate {
+    
+}
