@@ -49,8 +49,7 @@ class StoreManager {
         catch {
             print("Oopps did not get object from data:\(error)")
             return nil
+            
         }
-        
-        
     }
 }
