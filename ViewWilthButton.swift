@@ -34,11 +34,76 @@ class ViewWilthButton: UIView {
     
     func show(show:Bool, animated:Bool) {
         
-        let duration:NSTimeInterval = animated ? 1 : 0
-        UIView.animateWithDuration(duration) { () -> Void in
+        let duration:NSTimeInterval = animated ? 0.3 : 0
+        let backgroundColor = show ? UIColor.whiteColor() : UIColor.purpleColor()
+        
+        
+         //Анимация вьюхи, на которой лежат все остальные представления
+        UIView.animateWithDuration(duration, animations:  { () -> Void in
             let alpha = show ? 1 : 0
             self.alpha = CGFloat(alpha)
+            self.backgroundColor = backgroundColor
+            
+        } ){(completed) -> Void in
+            self.showButtons(show, animated: animated)
         }
+        
+        // Показать заголовок
+        let titleDuration: NSTimeInterval = animated ? 0.25 : 0
+        
+        // по завершению первой анимации запустим следующую
+        UIView.animateWithDuration(titleDuration, animations: { () -> Void in
+            self.topText.alpha = show ? 1 : 0
+            })
+        { (compleled) -> Void in
+            
+            
+            UIView.animateWithDuration(titleDuration, animations: { 
+                //по завершению показаза заголовка, отобразить картинку
+                // изменим ее масштаб по горизотали и по вертикали
+                let scale: CGFloat = show ? 1.2 : 0.001
+                let transform = CGAffineTransformMakeScale(scale, scale)
+                self.imageView.transform = transform
+            })
+                { (compleled) -> Void in
+                    
+                    // приведем картинку к исходному размеру если нужно ее показать
+                    let finalScaleDuration = animated ? 0.1 : 0
+                    UIView.animateWithDuration(finalScaleDuration, animations: { 
+                        
+                        //получилось что для изображения мы сначала чуть расширили, а потом уменьшили картинку
+                        let finalScale:CGFloat = show ? 1.0 : 0.001
+                        let transform = CGAffineTransformMakeScale(finalScale, finalScale)
+                        self.imageView.transform = transform
+                    })
+
+            }
+         
+        }
+    }
+    
+    func showButtons (show: Bool, animated: Bool) {
+        
+        let shitXLeft   = show ? 0 : -self.button1.frame.size.width
+        let shiftXRight = -shitXLeft
+        let duration    = animated ? 0.4 : 0
+        
+        move(button1, toTranslation: shitXLeft, withDuration: duration, options: [UIViewAnimationOptions.CurveEaseIn])
+        move(button3, toTranslation: shitXLeft, withDuration: duration, options: [.CurveEaseOut])
+        move(button2, toTranslation: shiftXRight, withDuration:duration, options: [.CurveLinear])
+        move(button4, toTranslation: shiftXRight, withDuration: duration, options: [.CurveEaseInOut])
+    }
+    
+    func move(button: UIButton, toTranslation:CGFloat, withDuration: NSTimeInterval, options: UIViewAnimationOptions){
+        
+        UIView.animateWithDuration(withDuration,
+                                   delay: 0,
+                                   options: options,
+                                   animations: {
+                                    let transform = CGAffineTransformMakeTranslation(toTranslation, 0)
+                                    button.transform = transform
+            },
+                                   completion: nil)
     }
     
     func updateTopText(text:String){
