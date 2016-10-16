@@ -19,18 +19,43 @@ class QuizViewController: UIViewController {
     var earnedPoints = 0 {
         // каждый раз, когда значение заработанных очков изменилось будем обновлять текст
         didSet {
+            if oldValue == earnedPoints {
+                print("Значение изменилось")
+                return
+            }
+            if (earnedPoints < 0) {
+                earnedPoints = 0
+            }
             setupPointsLable()
         }
     }
     
     //MARK: - View LifeCycle
+    
+    //в этот момент лучше всего зняться загрузкой требовательных операций чего-то, что потребует большого 
+    //количества времени
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        setupPointsLable()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        prepareToAnimate()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        quizView.show(true, animated: true)
+    }
+    
+    func prepareToAnimate() {
+        quizView.show(false, animated:false)
     }
     
     //MARK: - Setup
+    
+
     func setup() {
         title = "Кино"
         self.view.backgroundColor = UIColor.orangeColor()
